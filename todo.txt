@@ -1,0 +1,21 @@
+- validation des formulaires
+
+
+objet json "dico" (représentation intermédiaire)
+-> parser en xml
+-> exporter en xml
+
+----
+
+- le templates des Files est dans index et dans templates, il faut nettoyer
+  de mme pour variables
+
+- faire des filtres personnalisés, des querys de tables personnalisés
+  (en fonction des colonnes, des types, etc...)
+  table sort, sortby (filter sortby), pagination
+- trier par familles surtout
+
+----
+
+- précompiler les templates d'inclusion lors de la mise en production
+- faire une directive pour les fenêtres modales

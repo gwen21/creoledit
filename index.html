@@ -1,0 +1,64 @@
+<html ng-app="CreolEdit">
+<head>
+    <meta charset="utf8"/>
+    <meta name="description" content="CreolEdit EOLE XML dictionary editor">
+    <title>{{'APPSHORTTITLE' | translate}}</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel='stylesheet' href='./node_modules/bootstrap/dist/css/bootstrap.min.css'/>
+    <link rel="icon" href="favicon.ico">
+</head>
+<body>
+
+    <ng-include src="'templates/navigation.html'"></ng-include>
+    <ng-include src="'templates/upload.html'"></ng-include>
+    <ng-include src="'templates/files.html'"></ng-include>
+
+        <!-- FIXME variables  -->
+        <div ng-controller="VariablesCtrl" >
+                <h1>{{'VARIABLES.TITLE' | translate}}</h1>
+                <div id="var-list" class="container">
+                    <table class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                        <th>
+                          <input type="text" style="width: 70%" placeholder="Filtrer la liste" ng-model="search" />
+                        </th>
+                        </tr>
+                        <tr>
+                          <th>{{'VARIABLES.FILE' | translate}}</th>
+                          <th>{{'VARIABLES.TYPE' | translate}}</th>
+                        </tr>
+                      </thead>
+                      <tbody class="">
+                            <tr ng-show="files.length === 0">
+                                <td colspan="2" class="">{{'VARIABLES.NOVARIABLES' | translate}}</td>
+                            </tr>
+                            <tr ng-repeat="var in eolvars.variables|filter:search track by $index ">
+                                <td>{{var.name}}</td>
+                                <td>{{var.type}}</td>
+                                <td><a href="#/" ng-click="removeVarByIndex($index);">{{'VARIABLES.DELETE' | translate}}</a></td>
+                                <td><a href="#/" ng-click="editVarByIndex($index);">{{'VARIABLES.EDIT' | translate}}</a></td>
+                            </tr>
+                      </tbody>
+                    </table>
+
+                </div> <!-- /file-list container -->
+                <div class="container">
+                    <button class="btn btn-info btn-block" ng-click="VarCreateWidget()">{{'VARIABLES.NEW_VARIABLE_BUTTON'|translate}}</button>
+                </div>
+            </div> <!-- variable controller -->
+
+    <ng-include src="'templates/export.html'"></ng-include>
+    <ng-include src="'templates/footer.html'"></ng-include>
+
+  <!-- angular stuff -->
+  <script src="./node_modules/angular/angular.min.js"></script>
+  <script src="./node_modules/angular-route/angular-route.min.js"></script>
+  <script src="./node_modules/angular-translate/dist/angular-translate.min.js"></script>
+  <script src="./node_modules/angular-ui-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script type="text/javascript" src="./node_modules/ng-file-upload/dist/ng-file-upload-all.min.js"></script>
+  <!-- application bundle -->
+  <script src="./js/lib/FileSaver.min.js"></script>
+  <script src="bundle.js"></script>
+</body>
+</html>

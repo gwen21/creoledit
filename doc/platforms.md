@@ -1,0 +1,10 @@
+## platforms
+
+- firefox
+- safari ? 
+- explorer ? 
+
+
+
+
+

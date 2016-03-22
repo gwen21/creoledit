@@ -1,0 +1,12 @@
+<div ng-controller="FileUploadCtrl" >
+
+    <div style="width:360px;height:240px;background-color:#ccc" ngf-drop ng-model="file"
+      ngf-drag-over-class="dragover"
+      ngf-pattern="'text/*,*/xml'"
+      ngf-multiple="false" ngf-allow-dir="false">
+    </div>
+    <div ng-show="uploaded">
+        {{'FILES.FILEUPLOADED'|translate}}
+    </div>
+
+</div>

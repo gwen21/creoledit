@@ -1,0 +1,35 @@
+{
+  "name": "CreolEdit",
+  "version": "0.0.1",
+  "description": "Creole dictionary Editor",
+  "homepage": "https://forge.cadoles.com/wpetit/CreolEdit",
+  "main": "index.html",
+  "scripts": {
+    "watch-js": "watchify js/app.js -o bundle.js -dv",
+    "watch": "npm run watch-js",
+    "build-js": "./node_modules/.bin/browserify js/app.js > bundle.js",
+    "build": "npm run build-js",
+    "server": "npm run watch & node_modules/live-server/live-server.js --port=3000 ./",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gwen gremon@cadoles.com",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "ssh://gogs@forge.cadoles.com:4242/gremond/creoledit.git"
+  },
+  "dependencies": {
+    "angular": "^1.4.4",
+    "angular-bootstrap": "^0.12.2",
+    "angular-translate": "^2.8.0",
+    "angular-ui-bootstrap": "^0.13.4",
+    "bootstrap": "^3.3.5",
+    "js2xmlparser": "^1.0.0",
+    "ng-file-upload": "^7.0.10"
+  },
+  "devDependencies": {
+    "browserify": "^11.1.0",
+    "live-server": "^0.8.1",
+    "watchify": "^3.4.0"
+  }
+}

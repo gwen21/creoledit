@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<creole>
+ <containers>
+  <container name="mon_reverseproxy" id='101'>
+    <package>nginx</package>
+    <service servicelist="myrevprox" startlevel='91'>nginx</service>
+    <file filelist='myrevprox' name='/etc/nginx/sites-enabled/default' path='/etc/nginx/sites/default' source='nginx.default'/>
+    <file filelist='myrevprox' name='/var/www/nginx-default/nginx.html' rm='True'/>
+  </container>
+</containers>
+<files>
+  <service>ntp</service>
+  <file name='/etc/ntp.conf/'/>
+  <file name='/etc/default/ntpdate' owner='ntp' group='ntp' mode='600'/>
+  <file name='/etc/strange/host' source='strangehost.conf' mkdir='True'/>
+</files>
+    <variables>
+    </variables>
+    <constraints>
+    </constraints>
+    <help>
+    </help>
+</creole>
